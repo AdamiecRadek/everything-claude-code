@@ -318,10 +318,12 @@ if [ -f "${CONFIG_DIR}/disabled" ]; then
   OBSERVER_ENABLED=false
 else
   OBSERVER_ENABLED=false
-  CONFIG_FILE="${SKILL_ROOT}/config.json"
-  # Allow CLV2_CONFIG override
   if [ -n "${CLV2_CONFIG:-}" ]; then
     CONFIG_FILE="$CLV2_CONFIG"
+  elif [ -f "${CONFIG_DIR}/config.json" ]; then
+    CONFIG_FILE="${CONFIG_DIR}/config.json"
+  else
+    CONFIG_FILE="${SKILL_ROOT}/config.json"
   fi
   # Use effective config path for both existence check and reading
   EFFECTIVE_CONFIG="$CONFIG_FILE"

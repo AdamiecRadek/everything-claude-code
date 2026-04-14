@@ -2500,6 +2500,17 @@ async function runTests() {
     passed++;
   else failed++;
 
+  if (
+    test('observer-loop gates the interval-driven analyze_observations call against SIGUSR1 re-entrancy', () => {
+      const observerLoopSource = fs.readFileSync(path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'agents', 'observer-loop.sh'), 'utf8');
+
+      assert.ok(/if \[ "\$ANALYZING" -eq 1 \]/.test(observerLoopSource), 'on_usr1 must keep its ANALYZING re-entrancy check');
+      assert.ok(/USR1_FIRED=0\s*\n\s*else\s*\n[\s\S]*?ANALYZING=1\s*\n\s*analyze_observations\s*\n[\s\S]*?ANALYZING=0/.test(observerLoopSource), 'the interval-driven analyze_observations call must be wrapped with ANALYZING=1 before and ANALYZING=0 after, so a SIGUSR1 trap firing during the main-loop analysis hits the re-entrancy guard instead of nesting and clobbering claude_pid/watchdog_pid');
+    })
+  )
+    passed++;
+  else failed++;
+
   if (SKIP_BASH) {
     console.log('  ⊘ detect-project exports the resolved Python command (skipped on Windows)');
     passed++;

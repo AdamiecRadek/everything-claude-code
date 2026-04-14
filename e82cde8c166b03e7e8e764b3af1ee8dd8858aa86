@@ -1,0 +1,27 @@
+skills/continuous-learning-v2/hooks/observe.sh
+  13bef4cd1c80ecb7 323-326
+tests/hooks/hooks.test.js
+  13bef4cd1c80ecb7 5553-5584
+skills/continuous-learning-v2/agents/start-observer.sh
+  13bef4cd1c80ecb7 47-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "e82cde8c166b03e7e8e764b3af1ee8dd8858aa86",
+  "prompts": {
+    "13bef4cd1c80ecb7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b30a34c7-61ee-49d4-a8ab-ff0705ed1c84",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Radek Adamiec",
+      "messages": [],
+      "total_additions": 620,
+      "total_deletions": 2,
+      "accepted_lines": 620,
+      "overriden_lines": 0
+    }
+  }
+}

@@ -12,6 +12,36 @@ const { execFileSync, spawn, spawnSync } = require('child_process');
 
 const SKIP_BASH = process.platform === 'win32';
 
+// Resolve a Python interpreter at runtime so tests pass on Windows (where
+// `python3` is often unavailable) and minimal containers. Returns null if
+// nothing is found; callers should skip the test in that case.
+function findPython() {
+  const candidates = process.platform === 'win32'
+    ? ['python', 'python3']
+    : ['python3', 'python'];
+  for (const candidate of candidates) {
+    const result = spawnSync(candidate, ['--version'], { encoding: 'utf8' });
+    if (result.status === 0) {
+      return candidate;
+    }
+  }
+  return null;
+}
+
+// Poll until `pgrep -f pattern` finds a match or the deadline passes. Used by
+// migrate-homunculus tests that race against a just-spawn()-ed child process
+// which may not yet be visible to pgrep on slow CI hosts.
+function waitForPgrep(pattern, timeoutMs = 3000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const probe = spawnSync('pgrep', ['-f', pattern], { stdio: 'ignore' });
+    if (probe.status === 0) return true;
+    const waitEnd = Date.now() + 50;
+    while (Date.now() < waitEnd) { /* busy-wait 50ms without adding deps */ }
+  }
+  return false;
+}
+
 function toBashPath(filePath) {
   if (process.platform !== 'win32') {
     return filePath;
@@ -5452,7 +5482,9 @@ Some random content without the expected ### Context to Load section
         'print(m.HOMUNCULUS_DIR)',
       ].join(';');
 
-      const run = (env) => execFileSync('python3', ['-c', probe], { env, encoding: 'utf8' }).trim();
+      const pythonBin = findPython();
+      assert.ok(pythonBin, 'Python interpreter required for this test');
+      const run = (env) => execFileSync(pythonBin, ['-c', probe], { env, encoding: 'utf8' }).trim();
 
       const customPath = path.join(tmp, 'custom');
       const envA = { ...process.env, HOME: tmp, CLI: cli, CLV2_HOMUNCULUS_DIR: customPath };
@@ -5487,7 +5519,9 @@ Some random content without the expected ### Context to Load section
       ].join(';');
       const env = { ...process.env, HOME: tmp, CLI: cli, CLV2_HOMUNCULUS_DIR: 'relative/bad' };
       delete env.XDG_DATA_HOME;
-      const result = spawnSync('python3', ['-c', probe], { env, encoding: 'utf8' });
+      const pythonBin = findPython();
+      assert.ok(pythonBin, 'Python interpreter required for this test');
+      const result = spawnSync(pythonBin, ['-c', probe], { env, encoding: 'utf8' });
       assert.notStrictEqual(result.status, 0, 'module load must fail when CLV2_HOMUNCULUS_DIR is relative');
       assert.match(result.stderr, /CLV2_HOMUNCULUS_DIR must be an absolute path/, 'error should name the offending env var');
       fs.rmSync(tmp, { recursive: true, force: true });
@@ -5509,7 +5543,9 @@ Some random content without the expected ### Context to Load section
       ].join(';');
       const env = { ...process.env, HOME: tmp, CLI: cli, XDG_DATA_HOME: 'not/absolute' };
       delete env.CLV2_HOMUNCULUS_DIR;
-      const result = spawnSync('python3', ['-c', probe], { env, encoding: 'utf8' });
+      const pythonBin = findPython();
+      assert.ok(pythonBin, 'Python interpreter required for this test');
+      const result = spawnSync(pythonBin, ['-c', probe], { env, encoding: 'utf8' });
       assert.strictEqual(result.status, 0, 'module should load when XDG_DATA_HOME is relative (warn + fall back)');
       assert.strictEqual(result.stdout.trim(), path.join(tmp, '.local', 'share', 'ecc-homunculus'));
       assert.match(result.stderr, /XDG_DATA_HOME=.*is not absolute/, 'stderr should explain the fallback');
@@ -5620,6 +5656,14 @@ Some random content without the expected ### Context to Load section
       fs.chmodSync(fake, 0o755);
       const child = spawn('/bin/sh', [fake], { detached: true, stdio: 'ignore' });
       try {
+        // Wait until pgrep can see the child; avoids a race on slow CI hosts
+        // where spawnSync('bash',...) runs before the kernel publishes the
+        // new process via /proc (or macOS equivalent).
+        assert.ok(
+          waitForPgrep(`${tmp}.*observer-loop\\.sh`),
+          'pgrep never observed the spawned fake observer within 3s'
+        );
+
         const scriptPath = path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'scripts', 'migrate-homunculus.sh');
         const env = { ...process.env, HOME: tmp };
         delete env.CLV2_HOMUNCULUS_DIR;

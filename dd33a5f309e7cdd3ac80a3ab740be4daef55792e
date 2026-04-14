@@ -1,0 +1,23 @@
+tests/hooks/hooks.test.js
+  13bef4cd1c80ecb7 2448-2453
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "dd33a5f309e7cdd3ac80a3ab740be4daef55792e",
+  "prompts": {
+    "13bef4cd1c80ecb7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b30a34c7-61ee-49d4-a8ab-ff0705ed1c84",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Radek Adamiec",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 1,
+      "accepted_lines": 7069,
+      "overriden_lines": 0
+    }
+  }
+}

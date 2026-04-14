@@ -2445,7 +2445,12 @@ async function runTests() {
     test('observer-loop runs the haiku analysis with --permission-mode acceptEdits', () => {
       const observerLoopSource = fs.readFileSync(path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'agents', 'observer-loop.sh'), 'utf8');
 
-      assert.ok(observerLoopSource.includes('--permission-mode acceptEdits'), 'observer-loop should spawn claude with --permission-mode acceptEdits so user settings.json plan-mode/Write allow-lists do not block instinct writes');
+      // Anchor to the claude invocation itself so a stray flag in a comment
+      // cannot satisfy the assertion.
+      assert.ok(
+        /claude --model haiku[\s\S]*?--permission-mode acceptEdits[\s\S]*?-p "\$prompt_content"/.test(observerLoopSource),
+        'observer-loop should spawn claude with --permission-mode acceptEdits so user settings.json plan-mode/Write allow-lists do not block instinct writes'
+      );
     })
   )
     passed++;

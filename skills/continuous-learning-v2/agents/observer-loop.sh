@@ -116,7 +116,11 @@ analyze_observations() {
   MAX_ANALYSIS_LINES="${ECC_OBSERVER_MAX_ANALYSIS_LINES:-500}"
   observer_tmp_dir="${PROJECT_DIR}/.observer-tmp"
   mkdir -p "$observer_tmp_dir"
-  analysis_file="$(mktemp "${observer_tmp_dir}/ecc-observer-analysis.XXXXXX.jsonl")"
+  # Template Xs must be at the end of the basename for BSD/macOS mktemp;
+  # rename to restore the .jsonl suffix the analyzer expects.
+  analysis_file_base="$(mktemp "${observer_tmp_dir}/ecc-observer-analysis.XXXXXX")"
+  analysis_file="${analysis_file_base}.jsonl"
+  mv "$analysis_file_base" "$analysis_file"
   tail -n "$MAX_ANALYSIS_LINES" "$OBSERVATIONS_FILE" > "$analysis_file"
   analysis_count=$(wc -l < "$analysis_file" 2>/dev/null || echo 0)
   echo "[$(date)] Using last $analysis_count of $obs_count observations for analysis" >> "$LOG_FILE"

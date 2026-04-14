@@ -2452,6 +2452,23 @@ async function runTests() {
     passed++;
   else failed++;
 
+  if (
+    test('observer-loop uses a BSD-compatible mktemp template for the analysis file', () => {
+      const observerLoopSource = fs.readFileSync(path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'agents', 'observer-loop.sh'), 'utf8');
+
+      assert.ok(
+        !/mktemp\s+"[^"]*XXXXXX[^"]*\.(jsonl|json|md|txt|log)"/.test(observerLoopSource),
+        'mktemp templates with text after XXXXXX produce literal-X filenames on macOS BSD mktemp; put XXXXXX at the end of the basename and rename to add the suffix'
+      );
+      assert.ok(
+        /analysis_file_base="\$\(mktemp[\s\S]*?\.XXXXXX"\)"[\s\S]*?analysis_file="\$\{analysis_file_base\}\.jsonl"[\s\S]*?mv "\$analysis_file_base" "\$analysis_file"/.test(observerLoopSource),
+        'observer-loop should mktemp with trailing-X template and rename to apply the .jsonl suffix portably'
+      );
+    })
+  )
+    passed++;
+  else failed++;
+
   if (SKIP_BASH) {
     console.log('  ⊘ detect-project exports the resolved Python command (skipped on Windows)');
     passed++;

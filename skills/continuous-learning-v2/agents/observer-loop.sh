@@ -292,6 +292,12 @@ while true; do
   if [ "$USR1_FIRED" -eq 1 ]; then
     USR1_FIRED=0
   else
+    # Gate with ANALYZING so a SIGUSR1 during this analysis hits the
+    # re-entrancy check in on_usr1() instead of nesting and clobbering
+    # claude_pid/watchdog_pid.
+    ANALYZING=1
     analyze_observations
+    LAST_ANALYSIS_EPOCH=$(date +%s)
+    ANALYZING=0
   fi
 done

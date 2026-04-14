@@ -5561,6 +5561,38 @@ Some random content without the expected ### Context to Load section
     passed++;
   else failed++;
 
+  if (
+    test('start-observer.sh prefers ${CONFIG_DIR}/config.json over SKILL_ROOT default', () => {
+      const source = fs.readFileSync(
+        path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'agents', 'start-observer.sh'),
+        'utf8'
+      );
+      assert.match(
+        source,
+        /CLV2_CONFIG:-[\s\S]*?CONFIG_FILE="\$CLV2_CONFIG"\s*elif \[ -f "\$\{CONFIG_DIR\}\/config\.json" \][\s\S]*?CONFIG_FILE="\$\{CONFIG_DIR\}\/config\.json"[\s\S]*?else[\s\S]*?CONFIG_FILE="\$\{SKILL_ROOT\}\/config\.json"/,
+        'start-observer.sh should check CLV2_CONFIG, then ${CONFIG_DIR}/config.json, then fall back to SKILL_ROOT'
+      );
+    })
+  )
+    passed++;
+  else failed++;
+
+  if (
+    test('observe.sh prefers ${CONFIG_DIR}/config.json over SKILL_ROOT default', () => {
+      const source = fs.readFileSync(
+        path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'hooks', 'observe.sh'),
+        'utf8'
+      );
+      assert.match(
+        source,
+        /CLV2_CONFIG:-[\s\S]*?CONFIG_FILE="\$CLV2_CONFIG"\s*elif \[ -f "\$\{CONFIG_DIR\}\/config\.json" \][\s\S]*?CONFIG_FILE="\$\{CONFIG_DIR\}\/config\.json"[\s\S]*?else[\s\S]*?CONFIG_FILE="\$\{SKILL_ROOT\}\/config\.json"/,
+        'observe.sh should check CLV2_CONFIG, then ${CONFIG_DIR}/config.json, then fall back to SKILL_ROOT'
+      );
+    })
+  )
+    passed++;
+  else failed++;
+
   // Summary
   console.log('\n=== Test Results ===');
   console.log(`Passed: ${passed}`);

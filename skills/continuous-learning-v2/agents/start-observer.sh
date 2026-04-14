@@ -44,6 +44,8 @@ else
 fi
 if [ -n "${CLV2_CONFIG:-}" ]; then
   CONFIG_FILE="$CLV2_CONFIG"
+elif [ -f "${CONFIG_DIR}/config.json" ]; then
+  CONFIG_FILE="${CONFIG_DIR}/config.json"
 else
   CONFIG_FILE="${SKILL_ROOT}/config.json"
 fi

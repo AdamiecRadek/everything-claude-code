@@ -12,6 +12,36 @@ const { execFileSync, spawn, spawnSync } = require('child_process');
 
 const SKIP_BASH = process.platform === 'win32';
 
+// Resolve a Python interpreter at runtime so tests pass on Windows (where
+// `python3` is often unavailable) and minimal containers. Returns null if
+// nothing is found; callers should skip the test in that case.
+function findPython() {
+  const candidates = process.platform === 'win32'
+    ? ['python', 'python3']
+    : ['python3', 'python'];
+  for (const candidate of candidates) {
+    const result = spawnSync(candidate, ['--version'], { encoding: 'utf8' });
+    if (result.status === 0) {
+      return candidate;
+    }
+  }
+  return null;
+}
+
+// Poll until `pgrep -f pattern` finds a match or the deadline passes. Used by
+// migrate-homunculus tests that race against a just-spawn()-ed child process
+// which may not yet be visible to pgrep on slow CI hosts.
+function waitForPgrep(pattern, timeoutMs = 3000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const probe = spawnSync('pgrep', ['-f', pattern], { stdio: 'ignore' });
+    if (probe.status === 0) return true;
+    const waitEnd = Date.now() + 50;
+    while (Date.now() < waitEnd) { /* busy-wait 50ms without adding deps */ }
+  }
+  return false;
+}
+
 function toBashPath(filePath) {
   if (process.platform !== 'win32') {
     return filePath;
@@ -5427,6 +5457,48 @@ Some random content without the expected ### Context to Load section
     passed++;
   else failed++;
 
+  if (SKIP_BASH) {
+    console.log('  ⊘ detect-project.sh falls back to default when CLV2_HOMUNCULUS_DIR is relative (skipped on Windows)');
+    passed++;
+  } else if (
+    test('detect-project.sh falls back to default when CLV2_HOMUNCULUS_DIR is relative', () => {
+      const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'clv2-'));
+      const scriptPath = path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'scripts', 'detect-project.sh');
+      const env = { ...process.env, HOME: tmp, CLV2_HOMUNCULUS_DIR: 'relative/path' };
+      delete env.XDG_DATA_HOME;
+      const out = execFileSync(
+        'bash',
+        ['-c', `source "${scriptPath}" 2>/dev/null; echo "$_CLV2_HOMUNCULUS_DIR"`],
+        { env, encoding: 'utf8' }
+      );
+      assert.strictEqual(out.trim(), path.join(tmp, '.local', 'share', 'ecc-homunculus'), 'relative CLV2_HOMUNCULUS_DIR must fall through to the default so observer data never lands under cwd');
+      fs.rmSync(tmp, { recursive: true, force: true });
+    })
+  )
+    passed++;
+  else failed++;
+
+  if (SKIP_BASH) {
+    console.log('  ⊘ detect-project.sh falls back to default when XDG_DATA_HOME is relative (skipped on Windows)');
+    passed++;
+  } else if (
+    test('detect-project.sh falls back to default when XDG_DATA_HOME is relative', () => {
+      const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'clv2-'));
+      const scriptPath = path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'scripts', 'detect-project.sh');
+      const env = { ...process.env, HOME: tmp, XDG_DATA_HOME: 'not/absolute' };
+      delete env.CLV2_HOMUNCULUS_DIR;
+      const out = execFileSync(
+        'bash',
+        ['-c', `source "${scriptPath}" 2>/dev/null; echo "$_CLV2_HOMUNCULUS_DIR"`],
+        { env, encoding: 'utf8' }
+      );
+      assert.strictEqual(out.trim(), path.join(tmp, '.local', 'share', 'ecc-homunculus'), 'relative XDG_DATA_HOME must fall through to the default per XDG Base Directory spec');
+      fs.rmSync(tmp, { recursive: true, force: true });
+    })
+  )
+    passed++;
+  else failed++;
+
   if (
     test('instinct-cli.py honors CLV2_HOMUNCULUS_DIR then XDG_DATA_HOME then default', () => {
       const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'clv2-'));
@@ -5439,7 +5511,9 @@ Some random content without the expected ### Context to Load section
         'print(m.HOMUNCULUS_DIR)',
       ].join(';');
 
-      const run = (env) => execFileSync('python3', ['-c', probe], { env, encoding: 'utf8' }).trim();
+      const pythonBin = findPython();
+      assert.ok(pythonBin, 'Python interpreter required for this test');
+      const run = (env) => execFileSync(pythonBin, ['-c', probe], { env, encoding: 'utf8' }).trim();
 
       const customPath = path.join(tmp, 'custom');
       const envA = { ...process.env, HOME: tmp, CLI: cli, CLV2_HOMUNCULUS_DIR: customPath };
@@ -5456,6 +5530,54 @@ Some random content without the expected ### Context to Load section
       delete envC.XDG_DATA_HOME;
       assert.strictEqual(run(envC), path.join(tmp, '.local', 'share', 'ecc-homunculus'));
 
+      fs.rmSync(tmp, { recursive: true, force: true });
+    })
+  )
+    passed++;
+  else failed++;
+
+  if (
+    test('instinct-cli.py rejects relative CLV2_HOMUNCULUS_DIR with ValueError', () => {
+      const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'clv2-'));
+      const cli = path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'scripts', 'instinct-cli.py');
+      const probe = [
+        'import importlib.util,os',
+        "spec=importlib.util.spec_from_file_location('m',os.environ['CLI'])",
+        'm=importlib.util.module_from_spec(spec)',
+        'spec.loader.exec_module(m)',
+      ].join(';');
+      const env = { ...process.env, HOME: tmp, CLI: cli, CLV2_HOMUNCULUS_DIR: 'relative/bad' };
+      delete env.XDG_DATA_HOME;
+      const pythonBin = findPython();
+      assert.ok(pythonBin, 'Python interpreter required for this test');
+      const result = spawnSync(pythonBin, ['-c', probe], { env, encoding: 'utf8' });
+      assert.notStrictEqual(result.status, 0, 'module load must fail when CLV2_HOMUNCULUS_DIR is relative');
+      assert.match(result.stderr, /CLV2_HOMUNCULUS_DIR must be an absolute path/, 'error should name the offending env var');
+      fs.rmSync(tmp, { recursive: true, force: true });
+    })
+  )
+    passed++;
+  else failed++;
+
+  if (
+    test('instinct-cli.py ignores relative XDG_DATA_HOME and falls back to default', () => {
+      const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'clv2-'));
+      const cli = path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'scripts', 'instinct-cli.py');
+      const probe = [
+        'import importlib.util,os',
+        "spec=importlib.util.spec_from_file_location('m',os.environ['CLI'])",
+        'm=importlib.util.module_from_spec(spec)',
+        'spec.loader.exec_module(m)',
+        'print(m.HOMUNCULUS_DIR)',
+      ].join(';');
+      const env = { ...process.env, HOME: tmp, CLI: cli, XDG_DATA_HOME: 'not/absolute' };
+      delete env.CLV2_HOMUNCULUS_DIR;
+      const pythonBin = findPython();
+      assert.ok(pythonBin, 'Python interpreter required for this test');
+      const result = spawnSync(pythonBin, ['-c', probe], { env, encoding: 'utf8' });
+      assert.strictEqual(result.status, 0, 'module should load when XDG_DATA_HOME is relative (warn + fall back)');
+      assert.strictEqual(result.stdout.trim(), path.join(tmp, '.local', 'share', 'ecc-homunculus'));
+      assert.match(result.stderr, /XDG_DATA_HOME=.*is not absolute/, 'stderr should explain the fallback');
       fs.rmSync(tmp, { recursive: true, force: true });
     })
   )
@@ -5563,6 +5685,14 @@ Some random content without the expected ### Context to Load section
       fs.chmodSync(fake, 0o755);
       const child = spawn('/bin/sh', [fake], { detached: true, stdio: 'ignore' });
       try {
+        // Wait until pgrep can see the child; avoids a race on slow CI hosts
+        // where spawnSync('bash',...) runs before the kernel publishes the
+        // new process via /proc (or macOS equivalent).
+        assert.ok(
+          waitForPgrep(`${tmp}.*observer-loop\\.sh`),
+          'pgrep never observed the spawned fake observer within 3s'
+        );
+
         const scriptPath = path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'scripts', 'migrate-homunculus.sh');
         const env = { ...process.env, HOME: tmp };
         delete env.CLV2_HOMUNCULUS_DIR;

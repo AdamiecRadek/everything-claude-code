@@ -132,7 +132,7 @@ The system automatically detects your current project:
 3. **`git rev-parse --show-toplevel`** -- fallback using repo path (machine-specific)
 4. **Global fallback** -- if no project is detected, instincts go to global scope
 
-Each project gets a 12-character hash ID (e.g., `a1b2c3d4e5f6`). A registry file at `${XDG_DATA_HOME:-$HOME/.local/share}/ecc-homunculus/projects.json` maps IDs to human-readable names.
+Each project gets a 12-character hash ID (e.g., `a1b2c3d4e5f6`). A registry file at `${CLV2_HOMUNCULUS_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/ecc-homunculus}/projects.json` maps IDs to human-readable names.
 
 ## Quick Start
 
@@ -369,7 +369,7 @@ Hooks fire **100% of the time**, deterministically. This means:
 ## Backward Compatibility
 
 v2.1 is fully compatible with v2.0 and v1:
-- Existing global instincts in `~/.claude/homunculus/instincts/` still work as global instincts (run `scripts/migrate-homunculus.sh` once to move them to the new default; see "Data Location")
+- Existing global instincts in `~/.claude/homunculus/instincts/` still work as global instincts (run `skills/continuous-learning-v2/scripts/migrate-homunculus.sh` once to move them to the new default; see "Data Location")
 - Existing `~/.claude/skills/learned/` skills from v1 still work
 - Stop hook still runs (but now also feeds into v2)
 - Gradual migration: run both in parallel

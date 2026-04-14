@@ -1,0 +1,35 @@
+skills/continuous-learning-v2/scripts/detect-project.sh
+  13bef4cd1c80ecb7 22-24
+skills/continuous-learning-v2/hooks/observe.sh
+  13bef4cd1c80ecb7 86-88
+skills/continuous-learning-v2/agents/start-observer.sh
+  13bef4cd1c80ecb7 38-40
+skills/continuous-learning-v2/scripts/lib/homunculus-dir.sh
+  13bef4cd1c80ecb7 1-35
+skills/continuous-learning-v2/scripts/migrate-homunculus.sh
+  13bef4cd1c80ecb7 14-20,28-39
+tests/hooks/hooks.test.js
+  13bef4cd1c80ecb7 5401-5442
+tests/hooks/observer-memory.test.js
+  13bef4cd1c80ecb7 280,282,285-289
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "0d9a54c48d0523f2841f288efd91a967794be1a9",
+  "prompts": {
+    "13bef4cd1c80ecb7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b30a34c7-61ee-49d4-a8ab-ff0705ed1c84",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Radek Adamiec",
+      "messages": [],
+      "total_additions": 153,
+      "total_deletions": 38,
+      "accepted_lines": 695,
+      "overriden_lines": 0
+    }
+  }
+}

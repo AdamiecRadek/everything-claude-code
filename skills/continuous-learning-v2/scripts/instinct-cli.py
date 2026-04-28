@@ -39,20 +39,23 @@ except ImportError:
 # ─────────────────────────────────────────────
 
 def _resolve_homunculus_dir() -> Path:
+    # Reject `~`-prefixed and relative values BEFORE expanding, so Python
+    # matches the Bash (homunculus-dir.sh) and Node (observer-sessions.js)
+    # resolvers, which both require a literal leading `/`. Without this
+    # check, `CLV2_HOMUNCULUS_DIR=~/foo` would be accepted in Python only
+    # and silently split data across runtimes.
     override = os.environ.get("CLV2_HOMUNCULUS_DIR")
     if override:
-        expanded = Path(override).expanduser()
-        if expanded.is_absolute():
-            return expanded
+        if Path(override).is_absolute():
+            return Path(override)
         print(
             f"[ecc] CLV2_HOMUNCULUS_DIR={override!r} is not absolute; ignoring",
             file=sys.stderr,
         )
     xdg = os.environ.get("XDG_DATA_HOME")
     if xdg:
-        xdg_path = Path(xdg).expanduser()
-        if xdg_path.is_absolute():
-            return xdg_path / "ecc-homunculus"
+        if Path(xdg).is_absolute():
+            return Path(xdg) / "ecc-homunculus"
         print(
             f"[ecc] XDG_DATA_HOME={xdg!r} is not absolute; ignoring",
             file=sys.stderr,

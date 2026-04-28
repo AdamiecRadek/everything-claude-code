@@ -10,6 +10,7 @@ unset CLAUDECODE
 
 SLEEP_PID=""
 USR1_FIRED=0
+PENDING_ANALYSIS=0
 ANALYZING=0
 LAST_ANALYSIS_EPOCH=0
 # Minimum seconds between analyses (prevents rapid re-triggering)
@@ -251,13 +252,20 @@ PROMPT
 on_usr1() {
   [ -n "$SLEEP_PID" ] && kill "$SLEEP_PID" 2>/dev/null
   SLEEP_PID=""
-  USR1_FIRED=1
 
-  # Re-entrancy guard: skip if analysis is already running (#521)
+  # Re-entrancy guard: an analysis is already in flight. Defer the nudge
+  # via PENDING_ANALYSIS so the main loop runs a follow-up immediately
+  # after the current analysis finishes, instead of clearing USR1_FIRED
+  # on the next interval and silently dropping the signal (#521).
   if [ "$ANALYZING" -eq 1 ]; then
-    echo "[$(date)] Analysis already in progress, skipping signal" >> "$LOG_FILE"
+    PENDING_ANALYSIS=1
+    echo "[$(date)] Analysis already in progress, deferring signal" >> "$LOG_FILE"
     return
   fi
+
+  # Past re-entrancy: this trap-driven analysis serves the nudge, so the
+  # next interval tick should skip its scheduled run.
+  USR1_FIRED=1
 
   # Cooldown: skip if last analysis was too recent (#521)
   now_epoch=$(date +%s)
@@ -289,7 +297,16 @@ while true; do
   SLEEP_PID=""
 
   exit_if_idle_without_sessions
-  if [ "$USR1_FIRED" -eq 1 ]; then
+  if [ "$PENDING_ANALYSIS" -eq 1 ]; then
+    # SIGUSR1 fired while a previous analysis was running. Catch up now
+    # so the nudge isn't silently dropped for a full interval.
+    PENDING_ANALYSIS=0
+    USR1_FIRED=0
+    ANALYZING=1
+    analyze_observations
+    LAST_ANALYSIS_EPOCH=$(date +%s)
+    ANALYZING=0
+  elif [ "$USR1_FIRED" -eq 1 ]; then
     USR1_FIRED=0
   else
     # Gate with ANALYZING so a SIGUSR1 during this analysis hits the

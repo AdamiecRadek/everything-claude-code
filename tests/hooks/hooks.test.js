@@ -2464,6 +2464,19 @@ async function runTests() {
     passed++;
   else failed++;
 
+  if (
+    test('observer-loop defers SIGUSR1 nudges that arrive during analysis instead of dropping them', () => {
+      const observerLoopSource = fs.readFileSync(path.join(__dirname, '..', '..', 'skills', 'continuous-learning-v2', 'agents', 'observer-loop.sh'), 'utf8');
+
+      assert.ok(/^PENDING_ANALYSIS=0$/m.test(observerLoopSource), 'observer-loop must initialize PENDING_ANALYSIS=0 at top level so the deferred-nudge branch reads a deterministic value');
+      assert.ok(/on_usr1\(\)\s*\{[\s\S]*?if \[ "\$ANALYZING" -eq 1 \]; then\s*\n\s*PENDING_ANALYSIS=1/.test(observerLoopSource), 'on_usr1 must set PENDING_ANALYSIS=1 inside the ANALYZING re-entrancy branch so the main loop runs a follow-up analysis after the in-flight one completes');
+      assert.ok(!/on_usr1\(\)\s*\{[\s\S]*?SLEEP_PID=""\s*\n\s*USR1_FIRED=1/.test(observerLoopSource), 'on_usr1 must not set USR1_FIRED=1 before the ANALYZING re-entrancy check; doing so causes the main loop to clear the flag on the next iteration and silently drop the deferred nudge');
+      assert.ok(/if \[ "\$PENDING_ANALYSIS" -eq 1 \]; then[\s\S]*?PENDING_ANALYSIS=0[\s\S]*?ANALYZING=1\s*\n\s*analyze_observations[\s\S]*?ANALYZING=0\s*\n\s*elif \[ "\$USR1_FIRED" -eq 1 \]/.test(observerLoopSource), 'main loop must check PENDING_ANALYSIS first and run a deferred analysis before the USR1_FIRED skip branch, otherwise a SIGUSR1 that arrived during the previous analysis is dropped');
+    })
+  )
+    passed++;
+  else failed++;
+
   if (SKIP_BASH) {
     console.log('  ⊘ detect-project exports the resolved Python command (skipped on Windows)');
     passed++;

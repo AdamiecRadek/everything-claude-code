@@ -96,7 +96,7 @@ test('observer-loop.sh defines ANALYZING guard variable', () => {
 test('on_usr1 checks ANALYZING before starting analysis', () => {
   const content = fs.readFileSync(observerLoopPath, 'utf8');
   assert.ok(content.includes('if [ "$ANALYZING" -eq 1 ]'), 'on_usr1 should check ANALYZING flag');
-  assert.ok(content.includes('Analysis already in progress, skipping signal'), 'on_usr1 should log when skipping due to re-entrancy');
+  assert.ok(content.includes('Analysis already in progress, deferring signal'), 'on_usr1 should log when deferring due to re-entrancy (the trap defers via PENDING_ANALYSIS rather than dropping the signal)');
 });
 
 test('on_usr1 sets ANALYZING=1 before and ANALYZING=0 after analysis', () => {

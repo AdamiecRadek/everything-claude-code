@@ -1,0 +1,193 @@
+.agents/skills/eval-harness/SKILL.md
+  bc3371f84be5af7a 4
+.agents/skills/strategic-compact/agents/openai.yaml
+  bc3371f84be5af7a 5
+AGENTS.md
+  bc3371f84be5af7a 3,5,149
+.agents/skills/tdd-workflow/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/agent-sort/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+.agents/skills/mcp-server-patterns/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+.agents/skills/investor-outreach/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.claude-plugin/plugin.json
+  bc3371f84be5af7a 3-4
+scripts/release.sh
+  bc3371f84be5af7a 23-25,42-44,62,70,129,142-160,169,190,208,250,278-281,292
+.claude-plugin/marketplace.json
+  bc3371f84be5af7a 14-15
+.github/workflows/ci.yml
+  bc3371f84be5af7a 5-6
+package.json
+  bc3371f84be5af7a 3,277
+scripts/ci/catalog.js
+  bc3371f84be5af7a 36-37,48-52,543-591,633-639,641-642,651,655-656,658-662,664,670,675-681,683-702
+.agents/skills/fal-ai-media/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+docs/architecture/cross-harness.md
+  bc3371f84be5af7a 1-111
+.agents/skills/agent-introspection-debugging/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+.agents/skills/e2e-testing/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+docs/zh-CN/README.md
+  bc3371f84be5af7a 218,1105,1217,1227
+.agents/skills/coding-standards/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.github/workflows/release.yml
+  bc3371f84be5af7a 36-37,63,69,101-108
+VERSION
+  bc3371f84be5af7a 1
+docs/HERMES-SETUP.md
+  bc3371f84be5af7a 103,105
+docs/releases/2.0.0-rc.1/release-notes.md
+  bc3371f84be5af7a 1-54
+skills/continuous-learning-v2/agents/observer.md
+  bc3371f84be5af7a 20-23,71-72
+.agents/skills/content-engine/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+tests/ci/catalog.test.js
+  bc3371f84be5af7a 1-265
+.agents/skills/dmux-workflows/agents/openai.yaml
+  bc3371f84be5af7a 5
+docs/releases/2.0.0-rc.1/demo-prompts.md
+  bc3371f84be5af7a 1-42
+.agents/skills/everything-claude-code/SKILL.md
+  bc3371f84be5af7a 2
+docs/releases/2.0.0-rc.1/launch-checklist.md
+  bc3371f84be5af7a 1-41
+.agents/skills/everything-claude-code/agents/openai.yaml
+  bc3371f84be5af7a 3-5,7
+docs/SELECTIVE-INSTALL-ARCHITECTURE.md
+  bc3371f84be5af7a 706
+.agents/skills/video-editing/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/frontend-patterns/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/x-api/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+README.zh-CN.md
+  bc3371f84be5af7a 83,163
+docs/tr/README.md
+  bc3371f84be5af7a 82
+.agents/skills/crosspost/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+tests/hooks/observer-memory.test.js
+  bc3371f84be5af7a 208-264
+tests/docs/ecc2-release-surface.test.js
+  bc3371f84be5af7a 1-120
+skills/continuous-learning-v2/SKILL.md
+  bc3371f84be5af7a 244-258
+README.md
+  bc3371f84be5af7a 43-44,89,172-182,210,212-214,248-298,315,1283,1392,1402
+docs/releases/2.0.0-rc.1/telegram-handoff.md
+  bc3371f84be5af7a 1-26
+.github/workflows/reusable-release.yml
+  bc3371f84be5af7a 21,44,62-63,87,93,119-126
+.agents/skills/frontend-slides/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/exa-search/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+tests/hooks/hooks.test.js
+  bc3371f84be5af7a 157-167,172,199,300-304,2682-2683
+.agents/skills/backend-patterns/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.opencode/.npmignore
+  bc3371f84be5af7a 1-2
+.agents/skills/eval-harness/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/frontend-design/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+.agents/skills/market-research/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.codex-plugin/plugin.json
+  bc3371f84be5af7a 3
+agent.yaml
+  bc3371f84be5af7a 3
+docs/releases/2.0.0-rc.1/linkedin-post.md
+  bc3371f84be5af7a 1-28
+.agents/skills/investor-materials/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/api-design/agents/openai.yaml
+  bc3371f84be5af7a 5
+tests/integration/hooks.test.js
+  bc3371f84be5af7a 50-60,64
+tests/scripts/release-publish.test.js
+  bc3371f84be5af7a 53-64
+tests/ci/codex-skill-surface.test.js
+  bc3371f84be5af7a 1-121
+docs/releases/2.0.0-rc.1/article-outline.md
+  bc3371f84be5af7a 1-61
+.agents/plugins/marketplace.json
+  bc3371f84be5af7a 9
+skills/continuous-learning-v2/scripts/instinct-cli.py
+  bc3371f84be5af7a 42-46,49-50,57-58
+docs/tr/AGENTS.md
+  bc3371f84be5af7a 5
+.agents/skills/documentation-lookup/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/nextjs-turbopack/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+docs/releases/2.0.0-rc.1/x-thread.md
+  bc3371f84be5af7a 1-65
+skills/hermes-imports/SKILL.md
+  bc3371f84be5af7a 1-88
+docs/pt-BR/README.md
+  bc3371f84be5af7a 83
+.agents/skills/product-capability/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+.agents/skills/bun-runtime/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/claude-api/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/article-writing/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+tests/scripts/release.test.js
+  bc3371f84be5af7a 11-23,80-141
+tests/plugin-manifest.test.js
+  bc3371f84be5af7a 38,122,129,136,143,156,163,449,501
+docs/fixes/HOOK-FIX-20260421-ADDENDUM.md
+  bc3371f84be5af7a 90-92
+CHANGELOG.md
+  bc3371f84be5af7a 5,7-27
+.agents/skills/deep-research/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.opencode/package.json
+  bc3371f84be5af7a 3
+docs/zh-CN/AGENTS.md
+  bc3371f84be5af7a 3,5,150
+.agents/skills/security-review/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/brand-voice/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+tests/scripts/install-readme-clarity.test.js
+  bc3371f84be5af7a 1-88
+.agents/skills/verification-loop/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+skills/continuous-learning-v2/scripts/lib/homunculus-dir.sh
+  bc3371f84be5af7a 34-40
+.opencode/plugins/ecc-hooks.ts
+  bc3371f84be5af7a 459
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "4c4ff166587c283dcb86a8facafb534cc18a6435",
+  "prompts": {
+    "bc3371f84be5af7a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37a5586d-3c0a-442a-bac2-fe26eeb05166",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Radek Adamiec",
+      "messages": [],
+      "total_additions": 1832,
+      "total_deletions": 353,
+      "accepted_lines": 21482,
+      "overriden_lines": 35
+    }
+  }
+}

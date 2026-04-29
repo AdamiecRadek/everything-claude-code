@@ -1,0 +1,245 @@
+tests/docs/install-identifiers.test.js
+  bc3371f84be5af7a 1-78
+tests/hooks/observer-memory.test.js
+  bc3371f84be5af7a 208-264
+.agents/skills/api-design/agents/openai.yaml
+  bc3371f84be5af7a 5
+tests/scripts/install-apply.test.js
+  bc3371f84be5af7a 141,147-153,174-202,390,401-415,417-418,421-422
+CHANGELOG.md
+  bc3371f84be5af7a 9-28
+tests/hooks/hooks.test.js
+  bc3371f84be5af7a 471-486,554-557,700-807,2063-2089,2105-2125,2135-2139,2141-2142,2164-2165,2167,2170-2173,2195-2206,2213,2220-2229
+docs/releases/2.0.0-rc.1/article-outline.md
+  bc3371f84be5af7a 1-61
+scripts/hooks/bash-hook-dispatcher.js
+  bc3371f84be5af7a 1-177
+scripts/hooks/pre-bash-commit-quality.js
+  bc3371f84be5af7a 383-387
+.agents/skills/bun-runtime/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/strategic-compact/agents/openai.yaml
+  bc3371f84be5af7a 5
+scripts/harness-audit.js
+  bc3371f84be5af7a 4,191,200,202
+tests/scripts/release.test.js
+  bc3371f84be5af7a 11-23,80-141
+agent.yaml
+  bc3371f84be5af7a 3
+tests/hooks/gateguard-fact-force.test.js
+  bc3371f84be5af7a 13-14,18,34-35,37,39,369,371-372,375,378,380-406,420,423,452-564,566-568,570-571
+tests/scripts/release-publish.test.js
+  bc3371f84be5af7a 1-72
+scripts/release.sh
+  bc3371f84be5af7a 23-25,42-44,62,70,129,142-160,169,190,208,250,278-281,292
+.agents/skills/fal-ai-media/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/article-writing/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+scripts/hooks/gateguard-fact-force.js
+  bc3371f84be5af7a 31,35,46-90,92,94-95,98-102,107-109,129-130,136,138-160,174-176,188-194,197-199,206-265,280,296,310,320-325,353-354,359,364,380,390-392
+scripts/hooks/pre-bash-tmux-reminder.js
+  bc3371f84be5af7a 7,9,17-24,30-57
+.agents/skills/agent-sort/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+docs/releases/2.0.0-rc.1/x-thread.md
+  bc3371f84be5af7a 1-65
+hooks/hooks.json
+  bc3371f84be5af7a 10,13-14,21,32,43,56,68,80,91,105,118,131,136-137,144,157,169,180,191,203,215,230
+.agents/plugins/marketplace.json
+  bc3371f84be5af7a 9
+scripts/lib/install/apply.js
+  bc3371f84be5af7a 24-55,120,124-151
+scripts/hooks/session-end.js
+  bc3371f84be5af7a 19,182-183,187-189,191-197,202-220
+scripts/hooks/plugin-hook-bootstrap.js
+  bc3371f84be5af7a 1-153
+tests/lib/install-manifests.test.js
+  bc3371f84be5af7a 127-136,140
+.agents/skills/video-editing/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/frontend-design/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+.codex-plugin/plugin.json
+  bc3371f84be5af7a 3
+skills/continuous-learning-v2/hooks/observe.sh
+  bc3371f84be5af7a 30-56,63,68,82-86,140
+skills/continuous-learning-v2/scripts/detect-project.sh
+  bc3371f84be5af7a 84-88,109-111,113-117,131-135
+ecc_dashboard.py
+  bc3371f84be5af7a 11,14-15,24,264,797-798,913
+.agents/skills/exa-search/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/content-engine/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+skills/continuous-learning-v2/agents/observer-loop.sh
+  bc3371f84be5af7a 86-107,242
+docs/fixes/install_hook_wrapper.ps1
+  bc3371f84be5af7a 1-167
+scripts/lib/ecc_dashboard_runtime.py
+  bc3371f84be5af7a 1-61
+.agents/skills/coding-standards/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.opencode/plugins/ecc-hooks.ts
+  bc3371f84be5af7a 459
+.agents/skills/investor-outreach/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+tests/ci/codex-skill-surface.test.js
+  bc3371f84be5af7a 1-121
+tests/scripts/ecc-dashboard.test.js
+  bc3371f84be5af7a 1-128
+tests/scripts/install-readme-clarity.test.js
+  bc3371f84be5af7a 1-88
+.agents/skills/e2e-testing/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+agents/a11y-architect.md
+  bc3371f84be5af7a 4,6
+ecc2/src/session/mod.rs
+  bc3371f84be5af7a 414-434
+scripts/lib/install-targets/cursor-project.js
+  bc3371f84be5af7a 21-53,89,93,129-135,170-184
+.opencode/.npmignore
+  bc3371f84be5af7a 1-2
+scripts/hooks/post-bash-build-complete.js
+  bc3371f84be5af7a 7,9,12-16,22-49
+.claude-plugin/marketplace.json
+  bc3371f84be5af7a 14-15
+docs/releases/2.0.0-rc.1/release-notes.md
+  bc3371f84be5af7a 1-54
+.agents/skills/crosspost/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+scripts/hooks/auto-tmux-dev.js
+  bc3371f84be5af7a 34,36,54-60,73-79,84-85,88,90-107
+scripts/hooks/post-bash-command-log.js
+  bc3371f84be5af7a 41-56,58,69,78
+tests/docs/continuous-learning-v2-docs.test.js
+  bc3371f84be5af7a 1-64
+.agents/skills/nextjs-turbopack/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/tdd-workflow/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+docs/architecture/cross-harness.md
+  bc3371f84be5af7a 1-111
+tests/hooks/bash-hook-dispatcher.test.js
+  bc3371f84be5af7a 1-114
+scripts/hooks/pre-bash-git-push-reminder.js
+  bc3371f84be5af7a 7,9,12-19,25-52
+.agents/skills/product-capability/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+docs/releases/2.0.0-rc.1/demo-prompts.md
+  bc3371f84be5af7a 1-42
+scripts/ci/validate-hooks.js
+  bc3371f84be5af7a 76
+tests/scripts/harness-audit.test.js
+  bc3371f84be5af7a 22-33,36,144-240
+scripts/hooks/post-bash-pr-created.js
+  bc3371f84be5af7a 7,9,19-26,33-60
+package.json
+  bc3371f84be5af7a 3,5-7,277
+.agents/skills/investor-materials/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+docs/fixes/patch_settings_cl_v2_simple.ps1
+  bc3371f84be5af7a 1-187
+.agents/skills/dmux-workflows/agents/openai.yaml
+  bc3371f84be5af7a 5
+.agents/skills/frontend-patterns/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.github/workflows/reusable-release.yml
+  bc3371f84be5af7a 15-28,32,44,50,62-63,82-94,107-110,119-126
+.agents/skills/documentation-lookup/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/mcp-server-patterns/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+docs/releases/2.0.0-rc.1/telegram-handoff.md
+  bc3371f84be5af7a 1-26
+ecc2/src/session/store.rs
+  bc3371f84be5af7a 22-23,244-265,411-413,437-438,512-556,571-588,805-901,979,1100,1141,1163,1197,1225,1582,1634,1720,2075,2179-2218,2248-2335,2366,2377,2648,2658,2677-2745,4263-4664
+.agents/skills/frontend-slides/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+tests/lib/install-targets.test.js
+  bc3371f84be5af7a 96-98,100,106-109,111,211-218,254-255
+docs/releases/2.0.0-rc.1/linkedin-post.md
+  bc3371f84be5af7a 1-28
+.agents/skills/deep-research/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+docs/fixes/apply-hook-fix.sh
+  bc3371f84be5af7a 1-60
+.agents/skills/security-review/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+scripts/hooks/pre-bash-dispatcher.js
+  bc3371f84be5af7a 1-24
+.agents/skills/x-api/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/backend-patterns/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.agents/skills/agent-introspection-debugging/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+scripts/claw.js
+  bc3371f84be5af7a 94-97,103
+.github/workflows/release.yml
+  bc3371f84be5af7a 9,26,36-37,58-70,91-92,101-108
+.agents/skills/claude-api/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.github/workflows/reusable-test.yml
+  bc3371f84be5af7a 133-136
+scripts/hooks/mcp-health-check.js
+  bc3371f84be5af7a 311,316-319,362-373
+scripts/lib/install-executor.js
+  bc3371f84be5af7a 187-221,380,383,578-593
+tests/plugin-manifest.test.js
+  bc3371f84be5af7a 38,83-104,122,129,136,143,156,163,216-220,449,454-498,501
+scripts/ci/catalog.js
+  bc3371f84be5af7a 36-37,48-52,543-591,633-639,641-642,651,655-656,658-662,664,670,675-681,683-702
+tests/docs/ecc2-release-surface.test.js
+  bc3371f84be5af7a 1-120
+.agents/skills/everything-claude-code/agents/openai.yaml
+  bc3371f84be5af7a 3-5,7
+.opencode/package.json
+  bc3371f84be5af7a 3
+scripts/hooks/post-bash-dispatcher.js
+  bc3371f84be5af7a 1-24
+.agents/skills/market-research/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+tests/integration/hooks.test.js
+  bc3371f84be5af7a 124-163,169-171,174-187,270-277,362,543,675-676,951-957,959-963,966,978-986,988-995,999
+.agents/skills/eval-harness/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+docs/releases/2.0.0-rc.1/launch-checklist.md
+  bc3371f84be5af7a 1-41
+.agents/skills/verification-loop/agents/openai.yaml
+  bc3371f84be5af7a 3,5
+.claude-plugin/plugin.json
+  bc3371f84be5af7a 3-4
+.cursor/hooks.json
+  bc3371f84be5af7a 2
+.github/workflows/ci.yml
+  bc3371f84be5af7a 5-6,144-147
+ecc2/src/tui/dashboard.rs
+  bc3371f84be5af7a 27,96,183,338,558,625,1301-1305,1308-1312,1320-1330,1646,1728,2044,2084,4100,4506,4609-4618,6535-6796,7074-7076,7121-7133,7201,7212,7222-7223,7233,8566-8576,8601-8619,9397-9434,14604-14608,14623-14629,14634-14638,14651-14657,14943
+scripts/hooks/session-start.js
+  bc3371f84be5af7a 403-423
+tests/ci/catalog.test.js
+  bc3371f84be5af7a 1-265
+.agents/skills/brand-voice/agents/openai.yaml
+  bc3371f84be5af7a 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "c64429561cc4f2505fb635883313d7adf9804d98",
+  "prompts": {
+    "bc3371f84be5af7a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37a5586d-3c0a-442a-bac2-fe26eeb05166",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Radek Adamiec",
+      "messages": [],
+      "total_additions": 25922,
+      "total_deletions": 660,
+      "accepted_lines": 25919,
+      "overriden_lines": 0
+    }
+  }
+}

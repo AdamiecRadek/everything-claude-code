@@ -1,0 +1,218 @@
+skills/skill-stocktake/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 2
+skills/tinystruct-patterns/references/testing.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-59
+tests/lib/selective-install.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 84-102,266,453-468,709-739
+docs/ja-JP/skills/configure-ecc/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 20
+skills/ios-icon-gen/scripts/generate_icons.swift
+  s_bc3371f84be5af::t_03b173bf67f06d 1-258
+skills/security-review/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 211-215,223-227
+scripts/ci/validate-workflow-security.js
+  s_bc3371f84be5af::t_03b173bf67f06d 78
+.github/workflows/reusable-test.yml
+  s_bc3371f84be5af::t_03b173bf67f06d 39,70,87,108,117
+docs/zh-TW/README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 73,92,98,273,289
+docs/pt-BR/README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 127,164,170,316,332,411-412,427,455
+docs/ko-KR/README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 118,144,150,362,378,492-493,510,538
+docs/zh-CN/README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 173,218,224,227,605,621,767-768,786,816,1135,1137,1243,1245
+scripts/install-apply.js
+  s_bc3371f84be5af::t_03b173bf67f06d 27,39
+src/llm/core/types.py
+  s_bc3371f84be5af::t_03b173bf67f06d 60-77
+skills/continuous-learning-v2/agents/observer-loop.sh
+  s_bc3371f84be5af::t_6074742191567d 142,263-264
+tests/lib/install-manifests.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 148-164
+agents/swift-reviewer.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-107
+scripts/lib/install/request.js
+  s_bc3371f84be5af::t_03b173bf67f06d 11-16,54-55
+scripts/ci/catalog.js
+  s_bc3371f84be5af::t_03b173bf67f06d 24-25,104-115,363-387,418-423,588-612,620-621,650-679,690-691,796,802
+.claude-plugin/plugin.json
+  s_bc3371f84be5af::t_03b173bf67f06d 2,4
+agents/swift-build-resolver.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-161
+skills/search-first/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 23-26,64-76,92,102-104,119,180
+docs/ru/README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-1613
+tests/hooks/observer-memory.test.js
+  s_bc3371f84be5af::t_6074742191567d 99-100,114-122,349,366-370
+skills/backend-patterns/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 433-440
+README.zh-CN.md
+  s_bc3371f84be5af::t_03b173bf67f06d 105,108,110,154,160,163,549,565
+docs/zh-TW/skills/strategic-compact/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 24,37-46
+scripts/install-plan.js
+  s_bc3371f84be5af::t_03b173bf67f06d 28,39,66-70,99-100
+.codex-plugin/plugin.json
+  s_bc3371f84be5af::t_03b173bf67f06d 4,18
+skills/x-api/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 9-12
+.claude-plugin/PLUGIN_SCHEMA_NOTES.md
+  s_bc3371f84be5af::t_03b173bf67f06d 139
+tests/scripts/ecc-dashboard.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 82-84,88-100
+skills/exa-search/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 9-12
+scripts/lib/ecc_dashboard_runtime.py
+  s_bc3371f84be5af::t_03b173bf67f06d 48,62-70
+skills/openclaw-persona-forge/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 3
+tests/scripts/install-plan.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 112-125
+scripts/hooks/suggest-compact.js
+  s_bc3371f84be5af::t_03b173bf67f06d 21,25-38,41-44
+tests/test_provider_tools.py
+  s_bc3371f84be5af::t_03b173bf67f06d 1-88
+tests/hooks/hooks.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 1227-1267,2781-2837
+skills/continuous-learning-v2/scripts/instinct-cli.py
+  s_bc3371f84be5af::t_6074742191567d 46-47,52-53,57-81,221-228,232-248
+skills/continuous-learning-v2/scripts/lib/homunculus-dir.sh
+  s_bc3371f84be5af::t_6074742191567d 2,5-7
+skills/tinystruct-patterns/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-131
+docs/tr/README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 128,167,173,311-312,327,355
+tests/ci/validators.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 14,172-173,185-226,230,251-252,260-261,267,273,278-289,438-439,469-470,486-487,502-503,521-522,534-535,554-555,566-567,583-584,594-595,598,611-612,625-626,647-648,891-1062
+skills/ios-icon-gen/scripts/iconify_gen.sh
+  s_bc3371f84be5af::t_03b173bf67f06d 1-235
+skills/configure-ecc/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 21
+scripts/lib/install-manifests.js
+  s_bc3371f84be5af::t_03b173bf67f06d 81-130,217,221-223
+skills/deep-research/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 9-12
+skills/flox-environments/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-496
+tests/plugin-manifest.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 209-210,229-230,274-275,470,476,481,489
+.claude-plugin/marketplace.json
+  s_bc3371f84be5af::t_03b173bf67f06d 2,12,14
+skills/continuous-learning/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 3,7-15
+AGENTS.md
+  s_bc3371f84be5af::t_03b173bf67f06d 3,148-149
+docs/zh-CN/skills/skill-stocktake/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 2
+skills/strategic-compact/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 49,53
+tests/test_resolver.py
+  s_bc3371f84be5af::t_03b173bf67f06d 29-62
+ecc_dashboard.py
+  s_bc3371f84be5af::t_03b173bf67f06d 11,13,15,797-814,817,821
+docs/zh-CN/skills/strategic-compact/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 51,55
+skills/tinystruct-patterns/references/architecture.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-77
+tests/ci/validate-workflow-security.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 84-101
+skills/tinystruct-patterns/references/routing.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-57
+docs/zh-CN/skills/configure-ecc/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 22
+tests/hooks/gateguard-fact-force.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 984-1145
+.github/workflows/ci.yml
+  s_bc3371f84be5af::t_03b173bf67f06d 48,80,97,118,127,223-224
+src/llm/providers/resolver.py
+  s_bc3371f84be5af::t_03b173bf67f06d 6,21-56,59
+tests/test_types.py
+  s_bc3371f84be5af::t_03b173bf67f06d 66-96
+docs/zh-CN/AGENTS.md
+  s_bc3371f84be5af::t_03b173bf67f06d 3,149-150
+.github/workflows/reusable-validate.yml
+  s_bc3371f84be5af::t_03b173bf67f06d 53-55
+scripts/hooks/mcp-health-check.js
+  s_bc3371f84be5af::t_03b173bf67f06d 317-354,356-363,366-399,402-411,414-415,417-418,420,422-433,436-460,465-470,472-474,476-477
+tests/integration/hooks.test.js
+  s_bc3371f84be5af::t_6074742191567d 53,229-237,392,397-398,405,423-424,459-460,489,494-495,501,513-514
+CONTRIBUTING.md
+  s_bc3371f84be5af::t_03b173bf67f06d 170-171
+docs/ja-JP/skills/strategic-compact/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 24,37-46
+tests/ci/catalog.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 47,68-83,163,224,226-227,254-255,258,265-266
+skills/tinystruct-patterns/references/data-handling.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-35
+scripts/hooks/gateguard-fact-force.js
+  s_bc3371f84be5af::t_03b173bf67f06d 379-393,440,448-451,463-466
+scripts/lib/observer-sessions.js
+  s_bc3371f84be5af::t_6074742191567d 6,17-20,22,59-75,90-91,202
+skills/continuous-learning-v2/scripts/migrate-homunculus.sh
+  s_bc3371f84be5af::t_6074742191567d 2-3,23
+tests/lib/observer-sessions.test.js
+  s_bc3371f84be5af::t_6074742191567d 1-2,5,7-11,13-37,41,43,53-54,57,63-80,83-92,95-100,103-105,108-129,131-134
+skills/continuous-learning-v2/agents/observer.md
+  s_bc3371f84be5af::t_6074742191567d 20-21,69-70
+skills/tinystruct-patterns/references/system-usage.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-74
+skills/fal-ai-media/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 9-12
+tests/ci/no-personal-paths.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 1-211
+src/llm/providers/openai.py
+  s_bc3371f84be5af::t_03b173bf67f06d 70
+scripts/hooks/post-edit-format.js
+  s_bc3371f84be5af::t_03b173bf67f06d 24
+docs/ja-JP/README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 113,137,143,430,446
+README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1,28,31,92,229,237,240,242,344,350,353,451,770,786,964-965,984,1012,1339,1341,1444,1446
+.codex-plugin/README.md
+  s_bc3371f84be5af::t_03b173bf67f06d 15
+scripts/ci/validate-skills.js
+  s_bc3371f84be5af::t_03b173bf67f06d 4-19,29-166,174-175,177,180-182,184-186,188,190-192,203-207
+skills/ios-icon-gen/SKILL.md
+  s_bc3371f84be5af::t_03b173bf67f06d 1-157
+tests/hooks/mcp-health-check.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 955-1051
+scripts/ci/validate-no-personal-paths.js
+  s_bc3371f84be5af::t_03b173bf67f06d 4-8,26-27,30-69,92-93,95-99
+skills/continuous-learning-v2/scripts/detect-project.sh
+  s_bc3371f84be5af::t_03b173bf67f06d 54-77,123,130-136,156-168,173-182
+src/llm/providers/claude.py
+  s_bc3371f84be5af::t_03b173bf67f06d 63
+tests/docs/install-identifiers.test.js
+  s_bc3371f84be5af::t_03b173bf67f06d 38-39,42-43,89-90,93-94
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "d0d5efe98cdeac2a9f81c6b753bb14d8e185c93c",
+  "prompts": {
+    "bc3371f84be5af7a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37a5586d-3c0a-442a-bac2-fe26eeb05166",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Radek Adamiec <radek@adamiec.it>",
+      "total_additions": 13737,
+      "total_deletions": 0,
+      "accepted_lines": 13648,
+      "overriden_lines": 89
+    }
+  },
+  "sessions": {
+    "s_bc3371f84be5af": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37a5586d-3c0a-442a-bac2-fe26eeb05166",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Radek Adamiec <radek@adamiec.it>"
+    }
+  }
+}
